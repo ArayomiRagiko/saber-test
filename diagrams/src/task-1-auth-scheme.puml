@@ -1,0 +1,3 @@
+@startuml auth-scheme
+Alice -> Bob: test
+@enduml
