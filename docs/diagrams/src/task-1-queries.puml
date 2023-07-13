@@ -1,0 +1,14 @@
+@startuml queries
+package "Queries" {
+    map "GetParams()" as getparams {
+
+    }
+    map "StartGame()" as startgame {
+
+    }
+    map "SignIn()" as signin {
+        name => string
+        passwordHash => string
+    }
+}
+@enduml
