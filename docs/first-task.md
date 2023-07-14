@@ -13,7 +13,7 @@ Queries data model:
 ### Authorization process
 
 At first, the **Client** sends `SingIn()` query to **Authorization Service** to give it the user's name and password.
-After that, **Authorization Service** goes to **Data Base** and makes sure that name and hashed password are correct.
+After that, **Authorization Service** goes to **Database** and makes sure that name and hashed password are correct.
 If it is, then **Authorization Service** creates a session in Data Base and sends the session token to the **Client**.
 
 On the scheme, this process looks like this:
@@ -32,8 +32,8 @@ If the authorization process ends well, the **Client** sends `GetParams()` query
 
 ---
 
-After that, the **Game Service** asks for parameters from the **Data Base**.
-**Data Base** gives it, and **Game Service** compresses and sends it to the **Client**.
+After that, the **Game Service** asks for parameters from the **Database**.
+**Database** gives it, and **Game Service** compresses and sends it to the **Client**.
 
 On the scheme:
 
