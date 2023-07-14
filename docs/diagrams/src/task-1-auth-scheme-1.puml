@@ -1,7 +1,7 @@
 @startuml auth-scheme
 participant client as "Client"
 participant "Authorization Service" as authservice
-database "Data Base" as database
+database "Database" as database
 participant "Game Service" as gameservice
 participant "Game Queue" as gamequeue
 

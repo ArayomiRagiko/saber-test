@@ -5,6 +5,9 @@ theme:
     name: material
     language: ru
 
+repo_url: https://github.com/ArayomiRagiko/saber-test
+repo_name: ArayomiRagiko/saber-test
+
 plugins:
   - search
   - build_plantuml:
