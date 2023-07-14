@@ -46,7 +46,18 @@
     
     
     
-  </head>
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+            </style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
   
   
     <body dir="ltr">
@@ -221,9 +232,67 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Второе задание: Инструкция по Maya
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Второе задание: Инструкция по Maya
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание раздела">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание раздела
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#maya_1" class="md-nav__link">
+    Как создать кастомный контроллер для рига в Maya?
+  </a>
+  
+    <nav class="md-nav" aria-label="Как создать кастомный контроллер для рига в Maya?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    Создание окружностей
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    Создание единой ноды трансформации
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    Завершение
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -249,6 +318,48 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание раздела
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#maya_1" class="md-nav__link">
+    Как создать кастомный контроллер для рига в Maya?
+  </a>
+  
+    <nav class="md-nav" aria-label="Как создать кастомный контроллер для рига в Maya?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    Создание окружностей
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    Создание единой ноды трансформации
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    Завершение
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -263,6 +374,60 @@
 
 
 <h1 id="maya">Второе задание: Инструкция по Maya</h1>
+<h2 id="maya_1">Как создать кастомный контроллер для рига в Maya?</h2>
+<p>Функционал Maya позволяет создавать собственные контроллеры для рига и использовать их в дальнейших проектах.</p>
+<p>Создание контроллера мы разберём на простом примере, в котором есть всего три окружности.
+В конце мы получилм такой контроллер:</p>
+<p><a class="glightbox" href="../images/second-task-1-example-controller.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/second-task-1-example-controller.png" /></a></p>
+<h3 id="_1">Создание окружностей</h3>
+<p>Изначально необходимо создать окружность. Она находится в панели <strong>Curves / Surfaces</strong> в самом левом углу.</p>
+<p><a class="glightbox" href="../images/second-task-2-circle.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/second-task-2-circle.png" /></a></p>
+<p>Убедитесь, что у вас включено отображение нод фигур.
+Для этого кликните правой кнопкой мыши по панели с элементами и проверьте активен ли чекбокс у пункта Shapes.</p>
+<p><a class="glightbox" href="../images/second-task-3-shapes-on.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/second-task-3-shapes-on.png" /></a></p>
+<p>После этого вам необходимо создать дубликат окружности и повернуть её на 90 градусов по оси Z.
+Потом создайте ещё один дубликат и поверните его на 90 градусов по осям X&nbsp;и&nbsp;Z.
+В результате у вас должны получиться 3 окружности:</p>
+<p><a class="glightbox" href="../images/second-task-4-circles.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/second-task-4-circles.png" /></a></p>
+<hr />
+<p><strong>Примечание:</strong></p>
+<p>Чтобы было удобнее вращать окружности на равные градусы, зажимайте клавишу <code>J</code> на клавиатуре.</p>
+<hr />
+<h3 id="_2">Создание единой ноды трансформации</h3>
+<p>Перед дальнейшими действиями необходимо <em>заморозить</em> ноды трансформации.
+Выделите все 3 ноды трансформации и на панели <strong>Poly Modeling</strong> нажмите кнопку <strong>Freeze Transform</strong>.</p>
+<p><a class="glightbox" href="../images/second-task-5-freeze-transform.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/second-task-5-freeze-transform.png" /></a></p>
+<p>Это необходимо для того, чтобы в ноде фигуры зафиксировались координаты каждого круга.</p>
+<p>Далее сначала выделите ноду фигуры дубликата, а потом ноду трансформации оригинала и внизу в строке <strong>MEL</strong> введите следующую команду:</p>
+<pre><code>parent -r -s
+</code></pre>
+<p>Этой командой мы сделали ноду трансформации оригинального круга родительской для ноды фигуры дубликата.
+Флаги <code>-r</code> и <code>-s</code> необходимы для того, чтобы операция прошла корректна. Подробнее в таблице:</p>
+<table>
+<thead>
+<tr>
+<th>Команда</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-relative (-r)</td>
+<td>сохраняет существующие трансформации объектов.</td>
+</tr>
+<tr>
+<td>-shape (-s)</td>
+<td><code>parent</code> обычно работает только с трансформационными нодами. Использование этого флага позволяет работать с нодами фигур.</td>
+</tr>
+</tbody>
+</table>
+<p>Повторите эти действия для второго дубликата. После этого все три ноды фигуры должны быть в одной ноде трансформации:</p>
+<p><a class="glightbox" href="../images/second-task-6-figure-nodes-in-transform-nodes.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/second-task-6-figure-nodes-in-transform-nodes.png" /></a></p>
+<h3 id="_3">Завершение</h3>
+<p>Если вы смогли повторить все шаги данной инструкции, то в конце у вас должен получиться вот такой контроллер:</p>
+<p><a class="glightbox" href="../images/second-task-7-final-result.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/second-task-7-final-result.png" /></a></p>
+<p>С помощью этого метода можно создавать контроллеры абсолютно любой формы.</p>
+<p><a class="glightbox" href="../images/second-task-8-other-forms.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/second-task-8-other-forms.png" /></a></p>
 
 
 
@@ -306,5 +471,5 @@
       <script src="../assets/javascripts/bundle.220ee61c.min.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

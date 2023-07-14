@@ -48,7 +48,18 @@
     
     
     
-  </head>
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+            </style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
   
   
     <body dir="ltr">
@@ -367,25 +378,25 @@
 <h1 id="_1">Первое задание: Инструкция со схемой</h1>
 <h2 id="authorization-and-starting-the-game-queue">Authorization and starting the game queue</h2>
 <p>Full scheme for authorization and starting the game queue:</p>
-<p><img src="../diagrams/out/auth-scheme.svg" width=100% height=auto></p>
+<p><a class="glightbox" href="../diagrams/out/auth-scheme.svg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="../diagrams/out/auth-scheme.svg" width=100% height=auto></a></p>
 <p>Queries data model:</p>
-<p><img src="../diagrams/out/queries.svg" width=50% height=auto></p>
+<p><a class="glightbox" href="../diagrams/out/queries.svg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="../diagrams/out/queries.svg" width=50% height=auto></a></p>
 <h3 id="authorization-process">Authorization process</h3>
 <p>At first, the <strong>Client</strong> sends <code>SingIn()</code> query to <strong>Authorization Service</strong> to give it the user's name and password.
-After that, <strong>Authorization Service</strong> goes to <strong>Data Base</strong> and makes sure that name and hashed password are correct.
+After that, <strong>Authorization Service</strong> goes to <strong>Database</strong> and makes sure that name and hashed password are correct.
 If it is, then <strong>Authorization Service</strong> creates a session in Data Base and sends the session token to the <strong>Client</strong>.</p>
 <p>On the scheme, this process looks like this:</p>
-<p><img src="../diagrams/out/auth-process.svg" width=70% height=auto></p>
+<p><a class="glightbox" href="../diagrams/out/auth-process.svg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="../diagrams/out/auth-process.svg" width=70% height=auto></a></p>
 <h3 id="getting-parameters">Getting parameters</h3>
 <p>If the authorization process ends well, the <strong>Client</strong> sends <code>GetParams()</code> query to the <strong>Game Service</strong>.</p>
 <hr />
 <p><strong>Attention:</strong></p>
 <p><code>GetParams()</code> must include the correct session token from the authorization process.</p>
 <hr />
-<p>After that, the <strong>Game Service</strong> asks for parameters from the <strong>Data Base</strong>.
-<strong>Data Base</strong> gives it, and <strong>Game Service</strong> compresses and sends it to the <strong>Client</strong>.</p>
+<p>After that, the <strong>Game Service</strong> asks for parameters from the <strong>Database</strong>.
+<strong>Database</strong> gives it, and <strong>Game Service</strong> compresses and sends it to the <strong>Client</strong>.</p>
 <p>On the scheme:</p>
-<p><img src="../diagrams/out/params.svg" width=70% height=auto></p>
+<p><a class="glightbox" href="../diagrams/out/params.svg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="../diagrams/out/params.svg" width=70% height=auto></a></p>
 <h3 id="starting-the-game-queue">Starting the game queue</h3>
 <p>After getting parameters, the <strong>Client</strong> decompresses and applies them.
 If everything goes well, then the <strong>Client</strong> sends <code>StartGame()</code> to the <strong>Game Service</strong>.</p>
@@ -395,7 +406,7 @@ If everything goes well, then the <strong>Client</strong> sends <code>StartGame(
 <hr />
 <p>And then, <strong>Game Service</strong> starts the <strong>Game Queue</strong>.</p>
 <p>On the scheme:</p>
-<p><img src="../diagrams/out/starting-game.svg" width=70% height=auto></p>
+<p><a class="glightbox" href="../diagrams/out/starting-game.svg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="../diagrams/out/starting-game.svg" width=70% height=auto></a></p>
 
 
 
@@ -439,5 +450,5 @@ If everything goes well, then the <strong>Client</strong> sends <code>StartGame(
       <script src="../assets/javascripts/bundle.220ee61c.min.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>
