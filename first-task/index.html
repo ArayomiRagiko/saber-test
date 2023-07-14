@@ -237,26 +237,32 @@
     Authorization and starting the game queue
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Authorization and starting the game queue">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#authorization-process" class="md-nav__link">
     Authorization process
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#getting-parameters" class="md-nav__link">
     Getting parameters
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#starting-the-game-queue" class="md-nav__link">
     Starting the game queue
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -314,26 +320,32 @@
     Authorization and starting the game queue
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Authorization and starting the game queue">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#authorization-process" class="md-nav__link">
     Authorization process
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#getting-parameters" class="md-nav__link">
     Getting parameters
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#starting-the-game-queue" class="md-nav__link">
     Starting the game queue
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -358,13 +370,13 @@
 <p><img src="../diagrams/out/auth-scheme.svg" width=100% height=auto></p>
 <p>Queries data model:</p>
 <p><img src="../diagrams/out/queries.svg" width=50% height=auto></p>
-<h2 id="authorization-process">Authorization process</h2>
+<h3 id="authorization-process">Authorization process</h3>
 <p>At first, the <strong>Client</strong> sends <code>SingIn()</code> query to <strong>Authorization Service</strong> to give it the user's name and password.
 After that, <strong>Authorization Service</strong> goes to <strong>Data Base</strong> and makes sure that name and hashed password are correct.
 If it is, then <strong>Authorization Service</strong> creates a session in Data Base and sends the session token to the <strong>Client</strong>.</p>
 <p>On the scheme, this process looks like this:</p>
 <p><img src="../diagrams/out/auth-process.svg" width=70% height=auto></p>
-<h2 id="getting-parameters">Getting parameters</h2>
+<h3 id="getting-parameters">Getting parameters</h3>
 <p>If the authorization process ends well, the <strong>Client</strong> sends <code>GetParams()</code> query to the <strong>Game Service</strong>.</p>
 <hr />
 <p><strong>Attention:</strong></p>
@@ -374,7 +386,7 @@ If it is, then <strong>Authorization Service</strong> creates a session in Data 
 <strong>Data Base</strong> gives it, and <strong>Game Service</strong> compresses and sends it to the <strong>Client</strong>.</p>
 <p>On the scheme:</p>
 <p><img src="../diagrams/out/params.svg" width=70% height=auto></p>
-<h2 id="starting-the-game-queue">Starting the game queue</h2>
+<h3 id="starting-the-game-queue">Starting the game queue</h3>
 <p>After getting parameters, the <strong>Client</strong> decompresses and applies them.
 If everything goes well, then the <strong>Client</strong> sends <code>StartGame()</code> to the <strong>Game Service</strong>.</p>
 <hr />
