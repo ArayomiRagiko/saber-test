@@ -1,10 +1,10 @@
 @startuml queries
 package "Queries" {
     map "GetParams()" as getparams {
-
+        sessionToken => string
     }
     map "StartGame()" as startgame {
-
+        sessionToken => string
     }
     map "SignIn()" as signin {
         name => string
