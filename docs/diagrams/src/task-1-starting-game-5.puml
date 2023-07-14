@@ -1,0 +1,11 @@
+@startuml starting-game
+participant client as "Client"
+participant "Game Service" as gameservice
+participant "Game Queue" as gamequeue
+
+client -> client: Decompress and apply parameters
+client -> gameservice: StartGame()
+activate gameservice
+gameservice -> gamequeue: Starting Game Queue
+deactivate gameservice
+@enduml

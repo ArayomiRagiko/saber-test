@@ -1,0 +1,30 @@
+@startuml auth-scheme
+participant client as "Client"
+participant "Authorization Service" as authservice
+database "Data Base" as database
+participant "Game Service" as gameservice
+participant "Game Queue" as gamequeue
+
+client -> authservice: SignIn()
+activate authservice
+authservice -> database: Data from SignIn()
+activate database
+database --> authservice: Data match
+authservice -> database: Create session
+deactivate database
+authservice --> client: Send session token
+deactivate authservice
+client -> gameservice: GetParams()
+activate gameservice
+gameservice --> database: GetParams()
+activate database
+database -> gameservice: Give data for GetParams()
+deactivate database
+gameservice --> client: Give compressed data for GetParams()
+deactivate gameservice
+client -> client: Decompress and apply parameters
+client -> gameservice: StartGame()
+activate gameservice
+gameservice -> gamequeue: Starting Game Queue
+deactivate gameservice
+@enduml

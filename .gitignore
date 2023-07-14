@@ -1,2 +1,5 @@
 # plantuml output
 docs/diagrams/out/
+
+# build files for gh-deploy
+site
