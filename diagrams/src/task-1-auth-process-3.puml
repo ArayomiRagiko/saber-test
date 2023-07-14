@@ -1,0 +1,15 @@
+@startuml auth-process
+participant client as "Client"
+participant "Authorization Service" as authservice
+database "Data Base" as database
+
+client -> authservice: SignIn()
+activate authservice
+authservice -> database: Data from SignIn()
+activate database
+database --> authservice: Data match
+authservice -> database: Create session
+deactivate database
+authservice --> client: Send session token
+deactivate authservice
+@enduml

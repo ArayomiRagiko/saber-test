@@ -12,9 +12,9 @@ activate database
 database --> authservice: Data match
 authservice -> database: Create session
 deactivate database
-authservice --> client: Send session token (ST)
+authservice --> client: Send session token
 deactivate authservice
-client -> gameservice: GetParams() with ST
+client -> gameservice: GetParams()
 activate gameservice
 gameservice --> database: GetParams()
 activate database

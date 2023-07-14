@@ -208,9 +208,61 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Первое задание: Инструкция со схемой
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Первое задание: Инструкция со схемой
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание раздела">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание раздела
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#authorization-and-starting-the-game-queue" class="md-nav__link">
+    Authorization and starting the game queue
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authorization-process" class="md-nav__link">
+    Authorization process
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-parameters" class="md-nav__link">
+    Getting parameters
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#starting-the-game-queue" class="md-nav__link">
+    Starting the game queue
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -251,6 +303,42 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание раздела
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#authorization-and-starting-the-game-queue" class="md-nav__link">
+    Authorization and starting the game queue
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authorization-process" class="md-nav__link">
+    Authorization process
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-parameters" class="md-nav__link">
+    Getting parameters
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#starting-the-game-queue" class="md-nav__link">
+    Starting the game queue
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -265,8 +353,37 @@
 
 
 <h1 id="_1">Первое задание: Инструкция со схемой</h1>
-<p><img src="../diagrams/out/auth-scheme.svg" width=100% height=auto>
-<img src="../diagrams/out/queries.svg" width=40% height=auto></p>
+<h2 id="authorization-and-starting-the-game-queue">Authorization and starting the game queue</h2>
+<p>Full scheme for authorization and starting the game queue:</p>
+<p><img src="../diagrams/out/auth-scheme.svg" width=100% height=auto></p>
+<p>Queries data model:</p>
+<p><img src="../diagrams/out/queries.svg" width=50% height=auto></p>
+<h2 id="authorization-process">Authorization process</h2>
+<p>At first, the <strong>Client</strong> sends <code>SingIn()</code> query to <strong>Authorization Service</strong> to give it the user's name and password.
+After that, <strong>Authorization Service</strong> goes to <strong>Data Base</strong> and makes sure that name and hashed password are correct.
+If it is, then <strong>Authorization Service</strong> creates a session in Data Base and sends the session token to the <strong>Client</strong>.</p>
+<p>On the scheme, this process looks like this:</p>
+<p><img src="../diagrams/out/auth-process.svg" width=70% height=auto></p>
+<h2 id="getting-parameters">Getting parameters</h2>
+<p>If the authorization process ends well, the <strong>Client</strong> sends <code>GetParams()</code> query to the <strong>Game Service</strong>.</p>
+<hr />
+<p><strong>Attention:</strong></p>
+<p><code>GetParams()</code> must include the correct session token from the authorization process.</p>
+<hr />
+<p>After that, the <strong>Game Service</strong> asks for parameters from the <strong>Data Base</strong>.
+<strong>Data Base</strong> gives it, and <strong>Game Service</strong> compresses and sends it to the <strong>Client</strong>.</p>
+<p>On the scheme:</p>
+<p><img src="../diagrams/out/params.svg" width=70% height=auto></p>
+<h2 id="starting-the-game-queue">Starting the game queue</h2>
+<p>After getting parameters, the <strong>Client</strong> decompresses and applies them.
+If everything goes well, then the <strong>Client</strong> sends <code>StartGame()</code> to the <strong>Game Service</strong>.</p>
+<hr />
+<p><strong>Attention:</strong></p>
+<p><code>StartGame()</code> must include the correct session token from the authorization process.</p>
+<hr />
+<p>And then, <strong>Game Service</strong> starts the <strong>Game Queue</strong>.</p>
+<p>On the scheme:</p>
+<p><img src="../diagrams/out/starting-game.svg" width=70% height=auto></p>
 
 
 

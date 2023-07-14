@@ -1,0 +1,14 @@
+@startuml params
+participant client as "Client"
+participant "Game Service" as gameservice
+database "Data Base" as database
+
+client -> gameservice: GetParams()
+activate gameservice
+gameservice --> database: GetParams()
+activate database
+database -> gameservice: Give data for GetParams()
+deactivate database
+gameservice --> client: Give compressed data for GetParams()
+deactivate gameservice
+@enduml
