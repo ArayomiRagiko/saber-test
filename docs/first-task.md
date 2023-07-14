@@ -10,7 +10,7 @@ Queries data model:
 
 <img src="../diagrams/out/queries.svg" width=50% height=auto>
 
-## Authorization process
+### Authorization process
 
 At first, the **Client** sends `SingIn()` query to **Authorization Service** to give it the user's name and password.
 After that, **Authorization Service** goes to **Data Base** and makes sure that name and hashed password are correct.
@@ -20,7 +20,7 @@ On the scheme, this process looks like this:
 
 <img src="../diagrams/out/auth-process.svg" width=70% height=auto>
 
-## Getting parameters
+### Getting parameters
 
 If the authorization process ends well, the **Client** sends `GetParams()` query to the **Game Service**.
 
@@ -39,7 +39,7 @@ On the scheme:
 
 <img src="../diagrams/out/params.svg" width=70% height=auto>
 
-## Starting the game queue
+### Starting the game queue
 
 After getting parameters, the **Client** decompresses and applies them.
 If everything goes well, then the **Client** sends `StartGame()` to the **Game Service**.
